@@ -100,7 +100,7 @@ def init(data):
 
 
     for f in data['food']:
-        grid[f[0]][f[1]] += FOOD-mysnake.data['health']
+        grid[f[0]][f[1]] += FOOD-mysnake['health']
 
     return mysnake, grid
 
