@@ -132,6 +132,7 @@ def move():
     height = data['height']
     width = data['width']
 
+    '''
     snek, grid = init(data)
 
     head = snek['coords'][0]
@@ -166,7 +167,7 @@ def move():
         grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
         grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
 
-
+    '''
 
 
     # TODO: Do things with data
