@@ -18,7 +18,7 @@ def eval(location, grid):
     value = 50
 
     #if out of grid
-    if location[0] < 0 or location[1] < 0 or location[0] >= len(grid) or location[1] >= len(grid[0]):
+    if location[0] <= 0 or location[1] <= 0 or location[0] > len(grid) or location[1] > len(grid[0]):
         return value + 100
 
     #Add value of grid
