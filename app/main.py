@@ -6,7 +6,7 @@ import random
 
 SNEK_BUFFER = 3
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
-SNAKE = 10
+SNAKE = 100
 ENESNAKE = 10
 FOOD = -100
 SAFTEY = -1
