@@ -84,11 +84,11 @@ def init(data):
     grid = [[0 for col in xrange(data['height'])] for row in xrange(data['width'])]
     for snek in data['snakes']:
         print ('hi')
-        if snek[0] == ID:
+        if snek.data['id'] == ID:
             mysnake = snek
-        for coord in snek[7]:
+        for coord in snek.data['coords']:
             grid[coord[0]][coord[1]] += SNAKE
-            if coord == snek[7][0]:
+            if coord == snek.data['coords'][0]:
                 grid[coord[0]][coord[1]+1] += ENESNAKE
                 grid[coord[0]][coord[1]-1] += ENESNAKE
                 grid[coord[0]-1][coord[1]] += ENESNAKE
@@ -96,7 +96,7 @@ def init(data):
 
 
     for f in data['food']:
-        grid[f[0]][f[1]] += FOOD-mysnake[6]
+        grid[f[0]][f[1]] += FOOD-mysnake.data['health']
 
     return mysnake, grid
 
