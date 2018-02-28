@@ -181,6 +181,11 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
 
+    for row in grid:
+        for column in row:
+            print (column)
+
+
     return {
         'move': chooseDirect(head, grid),
         #'move': 'left',
