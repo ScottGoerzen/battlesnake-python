@@ -161,10 +161,10 @@ def move():
     
     #for each food
     for food in data['food']:
-        dist1 = distance([head[0]][head[1]+1], [food['x'], food['y']])
-        dist2 = distance([head[0]][head[1]-1], [food['x'], food['y']])
-        dist3 = distance([head[0]+1][head[1]], [food['x'], food['y']])
-        dist4 = distance([head[0]-1][head[1]], [food['x'], food['y']])
+        dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
+        dist2 = distance([head[0], head[1]-1], [food['x'], food['y']])
+        dist3 = distance([head[0]+1, head[1]], [food['x'], food['y']])
+        dist4 = distance([head[0]-1, head[1]], [food['x'], food['y']])
         grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
         grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
         grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
