@@ -26,10 +26,10 @@ def eval(location, grid):
 
 def chooseDirect(head, grid):
     #up
-    location = [head[0], head[1]+1]
+    location = [head[0], head[1]-1]
     up = eval(location, grid)
     #down
-    location = [head[0], head[1]-1]
+    location = [head[0], head[1]+1]
     down = eval(location, grid)
     #left
     location = [head[0]-1, head[1]]
