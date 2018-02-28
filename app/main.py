@@ -84,6 +84,7 @@ def init(data):
     grid = [[0 for col in xrange(data['height'])] for row in xrange(data['width'])]
     for snek in data['snakes']:
         print(data)
+        print(snek)
         print ('hi')
         if snek['data']['id'] == ID:
             mysnake = snek
