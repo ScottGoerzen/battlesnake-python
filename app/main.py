@@ -136,7 +136,7 @@ def move():
     snek, grid = init(data)
 
     head = snek['coords'][0]
-
+    '''
     # foreach snake
     for enemy in data['snakes']:
         if (enemy['id'] == ID):
@@ -155,7 +155,7 @@ def move():
             grid[enemy['coords'][0][0] + 1][enemy['coords'][0][1]] += SAFTEY
         if enemy['coords'][0][0] > 0:
             grid[enemy['coords'][0][0] - 1][enemy['coords'][0][1]] += SAFTEY
-    '''
+    
     #for each food
     for food in data['food']:
         dist1 = distance([head[0]][head[1]+1], food)
