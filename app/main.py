@@ -85,7 +85,7 @@ def init(data):
     for snek in data['snakes']:
         print(snek)
         print ('hi')
-        if snek.data['id'] == ID:
+        if snek['data']['id'] == ID:
             mysnake = snek
         for coord in snek.data['coords']:
             grid[coord[0]][coord[1]] += SNAKE
