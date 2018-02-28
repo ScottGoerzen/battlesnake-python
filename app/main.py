@@ -82,21 +82,21 @@ def closest(items, start):
 
 def init(data):
     grid = [[0 for col in xrange(data['height'])] for row in xrange(data['width'])]
-    for snek in data['snakes']:
+    for snek in data['snakes']['data']:
         print(data)
-        print(data['you'])
-        print(data['snakes'])
-        print(data['snakes']['data'])
+        #print(data['you'])
+        #print(data['snakes'])
+        #print(data['snakes']['data'])
         print ('hi')
-        if snek['data']['id'] == ID:
+        if snek['id'] == ID:
             mysnake = snek
-        for coord in snek.data['coords']:
+        for coord in snek['body']['data']:
             grid[coord[0]][coord[1]] += SNAKE
-            if coord == snek.data['coords'][0]:
-                grid[coord[0]][coord[1]+1] += ENESNAKE
-                grid[coord[0]][coord[1]-1] += ENESNAKE
-                grid[coord[0]-1][coord[1]] += ENESNAKE
-                grid[coord[0]+1][coord[1]] += ENESNAKE
+            if coord == snek['body']['data']['x']:
+                grid[coord['x']][coord['y']+1] += ENESNAKE
+                grid[coord['x']][coord['y']-1] += ENESNAKE
+                grid[coord['x']-1][coord['y']] += ENESNAKE
+                grid[coord['x']+1][coord['y']] += ENESNAKE
 
 
     for f in data['food']:
