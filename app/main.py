@@ -182,8 +182,8 @@ def move():
     directions = ['up', 'down', 'left', 'right']
 
     return {
-        #'move': chooseDirect(head, grid),
-        'move': 'left',
+        'move': chooseDirect(head, grid),
+        #'move': 'left',
         'taunt': 'battlesnake-python!'
     }
 
