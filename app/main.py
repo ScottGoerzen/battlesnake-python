@@ -107,10 +107,9 @@ def static(path):
 
 @bottle.post('/start')
 def start():
-    global ID
+
     data = bottle.request.json
     game_id = data['game_id']
-    ID = data['you']['id']
     board_width = data['width']
     board_height = data['height']
 
@@ -131,9 +130,11 @@ def start():
 
 @bottle.post('/move')
 def move():
+    global ID
     data = bottle.request.json
     height = data['height']
     width = data['width']
+    ID = data['you']['id']
 
 
     snek, grid = init(data)
