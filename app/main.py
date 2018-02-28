@@ -87,7 +87,7 @@ def init(data):
             mysnake = snek
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
-            if coord == snek['body']['data']['x']:
+            if coord == snek['body']['data'][0]:
                 grid[coord['x']][coord['y']+1] += ENESNAKE
                 grid[coord['x']][coord['y']-1] += ENESNAKE
                 grid[coord['x']-1][coord['y']] += ENESNAKE
