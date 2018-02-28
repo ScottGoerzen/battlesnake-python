@@ -81,7 +81,7 @@ def closest(items, start):
     return closest_item
 
 def init(data):
-    grid = [[0 for col in range(data['height'])] for row in range(data['width'])]
+    grid = [[0 for col in xrange(data['height'])] for row in xrange(data['width'])]
     for snek in data['snakes']:
         if snek['id']== ID:
             mysnake = snek
