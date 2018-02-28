@@ -138,7 +138,7 @@ def move():
 
     snek, grid = init(data)
 
-    head = [snek['body']['data']['x'], snek['body']['data']['y']]
+    head = [snek['body']['data'][0]['x'], snek['body']['data'][0]['y']]
     '''
     # foreach snake
     for enemy in data['snakes']:
