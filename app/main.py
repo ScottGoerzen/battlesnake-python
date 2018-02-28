@@ -139,38 +139,38 @@ def move():
     snek, grid = init(data)
 
     head = [snek['body']['data'][0]['x'], snek['body']['data'][0]['y']]
-    '''
+
     # foreach snake
-    for enemy in data['snakes']:
+    for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
             continue
-        dist = distance(['coords'][0], enemy['coords'][0])
+        dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
         #if (len(enemy['coords']) > len(snek['coords']) - 1):
         # dodge
-        if enemy['coords'][0][1] < data['height'] - 1:
-            grid[enemy['coords'][0][0]][enemy['coords'][0][1] + 1] += SAFTEY
-        if enemy['coords'][0][1] > 0:
-            grid[enemy['coords'][0][0]][enemy['coords'][0][1] - 1] += SAFTEY
+        if enemy['body']['data'][0]['y'] < data['height'] - 1:
+            grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] + 1] += SAFTEY
+        if enemy['body']['data'][0]['y'] > 0:
+            grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] - 1] += SAFTEY
 
-        if enemy['coords'][0][0] < data['width'] - 1:
-            grid[enemy['coords'][0][0] + 1][enemy['coords'][0][1]] += SAFTEY
+        if enemy['body']['data'][0]['x'] < data['width'] - 1:
+            grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
         if enemy['coords'][0][0] > 0:
-            grid[enemy['coords'][0][0] - 1][enemy['coords'][0][1]] += SAFTEY
+            grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
     
     #for each food
     for food in data['food']:
-        dist1 = distance([head[0]][head[1]+1], food)
-        dist2 = distance([head[0]][head[1]-1], food)
-        dist3 = distance([head[0]+1][head[1]], food)
-        dist4 = distance([head[0]-1][head[1]], food)
+        dist1 = distance([head[0]][head[1]+1], [food['x'], food['y']])
+        dist2 = distance([head[0]][head[1]-1], [food['x'], food['y']])
+        dist3 = distance([head[0]+1][head[1]], [food['x'], food['y']])
+        dist4 = distance([head[0]-1][head[1]], [food['x'], food['y']])
         grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
         grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
         grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
         grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
 
-    '''
+
 
 
     # TODO: Do things with data
