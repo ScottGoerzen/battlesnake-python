@@ -94,8 +94,8 @@ def init(data):
                 grid[coord['x']+1][coord['y']] += ENESNAKE
 
 
-    for f in data['food']:
-        grid[f[0]][f[1]] += FOOD-mysnake['health']
+    for f in data['food']['data']:
+        grid[f['x']][f['y']] += FOOD-mysnake['health']
 
     return mysnake, grid
 
