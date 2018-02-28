@@ -86,9 +86,9 @@ def init(data):
         print ('hi')
         if snek[0] == ID:
             mysnake = snek
-        for coord in snek['coords']:
+        for coord in snek[7]:
             grid[coord[0]][coord[1]] += SNAKE
-            if coord == snek['coords'][0]:
+            if coord == snek[7][0]:
                 grid[coord[0]][coord[1]+1] += ENESNAKE
                 grid[coord[0]][coord[1]-1] += ENESNAKE
                 grid[coord[0]-1][coord[1]] += ENESNAKE
@@ -96,7 +96,7 @@ def init(data):
 
 
     for f in data['food']:
-        grid[f[0]][f[1]] += FOOD-mysnake['health']
+        grid[f[0]][f[1]] += FOOD-mysnake[6]
 
     return mysnake, grid
 
