@@ -3,6 +3,7 @@ import os
 import math
 import copy
 import random
+from __future__ import print_function
 
 SNEK_BUFFER = 3
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
