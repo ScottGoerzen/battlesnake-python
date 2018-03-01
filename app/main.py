@@ -175,7 +175,7 @@ def move():
     for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
             continue
-        print('hallo')
+        #print('hallo')
         dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
