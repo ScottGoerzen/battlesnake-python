@@ -176,7 +176,7 @@ def move():
 
     #for each food
     for food in data['food']['data']:
-        if snek['health'] >50:
+        #if snek['health'] >50:
            # continue
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
