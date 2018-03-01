@@ -35,10 +35,10 @@ def chooseDirect(head, grid):
     location = [head[0], head[1]+1]
     down = eval(location, grid)
     #left
-    location = [head[0]+1, head[1]]
+    location = [head[0]-1, head[1]]
     left = eval(location, grid)
     #right
-    location = [head[0]-1, head[1]]
+    location = [head[0]+1, head[1]]
     right = eval(location, grid)
 
     print('Directions: [head: (%i,%i), up: (%i,%i), down: (%i,%i), left: (%i,%i), right: (%i,%i)]' % (head[0], head[1], head[0], head[1]+1, head[0], head[1]-1, head[0]-1, head[1], head[0]+1, head[1]))
