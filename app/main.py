@@ -44,10 +44,21 @@ def chooseDirect(head, grid):
     print('Directions: [head: (%i,%i), up: (%i,%i), down: (%i,%i), left: (%i,%i), right: (%i,%i)]' % (head[0], head[1], head[0], head[1]+1, head[0], head[1]-1, head[0]-1, head[1], head[0]+1, head[1]))
     print ('Values: [up: %i, down: %i, left: %i, right: %i]' % (up, down, left, right))
 
+    directions = ['up', 'down', 'left', 'right']
     valuesD = {up:'up', down:'down', left:'left', right:'right'}
     valuesL = [up, down, left, right]
-    print(valuesL)
+    valuesL.sort()
 
+    if valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2] and valuesL[0] == valuesL[3]:
+        random.shuffle[valuesL]
+    elif valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2]:
+        valuesL = valuesL[:3]
+        random.shuffle[valuesL]
+    elif valuesL[0] == valuesL[1]:
+        valuesL = valuesL[:2]
+        random.shuffle[valuesL]
+    return valuesD[valuesL]
+'''
     #find smallest value
     if up < down:
         if up < left:
@@ -71,6 +82,7 @@ def chooseDirect(head, grid):
                 return 'left'
             else:
                 return 'right'
+                '''
 
 def distance(p, q):
     dx = abs(p[0] - q[0])
