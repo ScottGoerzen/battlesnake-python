@@ -57,7 +57,7 @@ def chooseDirect(head, grid):
     elif valuesL[0] == valuesL[1]:
         valuesL = valuesL[:2]
         random.shuffle(valuesL)
-    return valuesD[valuesL]
+    return valuesD['valuesL']
 '''
     #find smallest value
     if up < down:
