@@ -183,6 +183,7 @@ def move():
     for food in data['food']['data']:
         dist = distance([head[0], head[1]], [food['x'], food['y']])
         if dist < close:
+            close = dist
             closeFood = food
 
 
