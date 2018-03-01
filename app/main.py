@@ -18,8 +18,8 @@ def eval(location, grid):
     value = 50
 
     #if out of grid
-    if location[0] <= 0 or location[1] <= 0 or location[0] > len(grid) or location[1] > len(grid[0]):
-        return value + 100
+    if location[0] < 0 or location[1] < 0 or location[0] >= len(grid) or location[1] >= len(grid[0]):
+        return value + 1000
 
     #Add value of grid
     value += grid[location[0]][location[1]]
@@ -29,10 +29,10 @@ def eval(location, grid):
 
 def chooseDirect(head, grid):
     #up
-    location = [head[0], head[1]-1]
+    location = [head[0], head[1]+1]
     up = eval(location, grid)
     #down
-    location = [head[0], head[1]+1]
+    location = [head[0], head[1]-1]
     down = eval(location, grid)
     #left
     location = [head[0]-1, head[1]]
@@ -96,11 +96,11 @@ def init(data):
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
             if coord == snek['body']['data'][0]:
-                if coord['y']+1 < data['width']:
+                if coord['y']+1 < data['height']:
                     grid[coord['x']][coord['y']+1] += ENESNAKE
                 if coord['y']-1 >= 0:
                     grid[coord['x']][coord['y']-1] += ENESNAKE
-                if coord['x']+1 < data['height']:
+                if coord['x']+1 < data['width']:
                     grid[coord['x']+1][coord['y']] += ENESNAKE
                 if coord['x']-1 < 0:
                     grid[coord['x']-1][coord['y']] += ENESNAKE
@@ -190,8 +190,9 @@ def move():
 
     for row in grid:
         for column in row:
-            print (column, end='')
+            print (str(column , end=' ')
         print()
+    print('_____________________________________________________________')
 
 
     return {
