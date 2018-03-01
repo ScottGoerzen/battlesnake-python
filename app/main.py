@@ -51,7 +51,8 @@ def chooseDirect(head, grid):
 
     if valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2] and valuesL[0] == valuesL[3]:
         random.shuffle(directions)
-        return directions[0]
+        # return directions[0]
+        return valuesD[valuesL[0]]
     elif valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2]:
         direct = []
         if up == valuesL[0]:
@@ -63,7 +64,8 @@ def chooseDirect(head, grid):
         if right == valuesL[0]:
             direct.append('right')
         random.shuffle(direct)
-        return directions[0]
+        # return directions[0]
+        return valuesD[valuesL[0]]
     elif valuesL[0] == valuesL[1]:
         direct = []
         if up == valuesL[0]:
@@ -75,7 +77,8 @@ def chooseDirect(head, grid):
         if right == valuesL[0]:
             direct.append('right')
         random.shuffle(direct)
-        return directions[0]
+        #return directions[0]
+        return valuesD[valuesL[0]]
     else:
         return valuesD[valuesL[0]]
 '''
