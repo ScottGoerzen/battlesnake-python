@@ -160,6 +160,7 @@ def move():
     for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
             continue
+        print('hallo')
         dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
@@ -181,10 +182,14 @@ def move():
         dist2 = distanceV([head[0], head[1]-1], [food['x'], food['y']])
         dist3 = distanceV([head[0]+1, head[1]], [food['x'], food['y']])
         dist4 = distanceV([head[0]-1, head[1]], [food['x'], food['y']])
-        grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
-        grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
-        grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
-        grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
+        if head[1]+1 < height:
+            grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
+        if head[1]-1 <= 0:
+            grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
+        if head[0]+1 < width:
+            grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
+        if head[0] - 1 >= 0:
+            grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
 
 
 
@@ -192,11 +197,11 @@ def move():
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
 
-    for row in grid:
-        for column in row:
-            print (column , end=' ')
-        print()
-    print('_____________________________________________________________')
+    #for row in grid:
+    #    for column in row:
+    #        print (column , end=' ')
+    #    print()
+    #print('_____________________________________________________________')
 
 
     return {
