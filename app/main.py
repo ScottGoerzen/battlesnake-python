@@ -175,7 +175,7 @@ def move():
             grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
         if enemy['coords'][0][0] > 0:
             grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
-    
+    '''
     #for each food
     for food in data['food']['data']:
         dist1 = distanceV([head[0], head[1]+1], [food['x'], food['y']])
@@ -191,7 +191,7 @@ def move():
         if head[0] - 1 >= 0:
             grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
 
-
+'''
 
 
     # TODO: Do things with data
