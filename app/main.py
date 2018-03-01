@@ -94,8 +94,8 @@ def init(data):
             mysnake = snek
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
-            '''
-            if coord == snek['body']['data'][0]:
+            
+            if coord == snek['body']['data'][0] and snek['id'] != ID:
                 if coord['y']+1 < data['height']:
                     grid[coord['x']][coord['y']+1] += ENESNAKE
                 if coord['y']-1 >= 0:
@@ -105,7 +105,7 @@ def init(data):
                 if coord['x']-1 < 0:
                     grid[coord['x']-1][coord['y']] += ENESNAKE
 
-'''
+
     for f in data['food']['data']:
         grid[f['x']][f['y']] += FOOD-mysnake['health']
 
