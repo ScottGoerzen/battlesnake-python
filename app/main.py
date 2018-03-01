@@ -152,7 +152,7 @@ def move():
 
     head = [snek['body']['data'][0]['x'], snek['body']['data'][0]['y']]
 
-    '''
+    
     # foreach snake
     for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
@@ -172,7 +172,7 @@ def move():
             grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
         if enemy['coords'][0][0] > 0:
             grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
-        '''
+
 
     #for each food
     for food in data['food']['data']:
