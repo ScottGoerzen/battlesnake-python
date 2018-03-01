@@ -12,7 +12,7 @@ ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 500
 ENESNAKE = 10
 FOOD = -10
-SAFTEY = -1
+SAFTEY = -10
 
 def eval(location, grid):
     value = 50
@@ -164,17 +164,17 @@ def move():
         dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
-        #if (len(enemy['coords']) > len(snek['coords']) - 1):
+        if (enemy['length'] > snek['length']) - 1:
         # dodge
-        if enemy['body']['data'][0]['y'] < data['height'] - 1:
-            grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] + 1] += SAFTEY
-        if enemy['body']['data'][0]['y'] > 0:
-            grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] - 1] += SAFTEY
+            if enemy['body']['data'][0]['y'] < data['height'] - 1:
+                grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] + 1] += SAFTEY
+            if enemy['body']['data'][0]['y'] > 0:
+                grid[enemy['body']['data'][0]['x']][enemy['body']['data'][0]['y'] - 1] += SAFTEY
 
-        if enemy['body']['data'][0]['x'] < data['width'] - 1:
-            grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
-        if enemy['body']['data'][0]['x'] > 0:
-            grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
+            if enemy['body']['data'][0]['x'] < data['width'] - 1:
+                grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
+            if enemy['body']['data'][0]['x'] > 0:
+                grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
 
 
     #for each food
