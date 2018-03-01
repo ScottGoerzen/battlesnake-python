@@ -197,7 +197,7 @@ def move():
         #print('Food Distance: [dist1: %f, dist2: %f, dist3: %f, dist4: %f]' % (dist1, dist2, dist3, dist4))
 
     #chase tail
-    if snek['health'] > 50
+    if snek['health'] > 50:
         if head[1] + 1 < height:
             dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
             grid[head[0]][head[1] + 1] += dist1+snek['health']
