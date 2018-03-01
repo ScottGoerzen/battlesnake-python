@@ -35,10 +35,10 @@ def chooseDirect(head, grid):
     location = [head[0], head[1]+1]
     down = eval(location, grid)
     #left
-    location = [head[0]-1, head[1]]
+    location = [head[0]+1, head[1]]
     left = eval(location, grid)
     #right
-    location = [head[0]+1, head[1]]
+    location = [head[0]-1, head[1]]
     right = eval(location, grid)
 
     print('Directions: [head: (%i,%i), up: (%i,%i), down: (%i,%i), left: (%i,%i), right: (%i,%i)]' % (head[0], head[1], head[0], head[1]+1, head[0], head[1]-1, head[0]-1, head[1], head[0]+1, head[1]))
@@ -74,11 +74,6 @@ def distance(p, q):
     dy = abs(p[1] - q[1])
     return dx + dy;
 
-def distanceV(p, q):
-    dx = abs(p[0] - q[0])
-    dy = abs(p[1] - q[1])
-    return [dx, dy];
-
 def closest(items, start):
     closest_item = None
     closest_distance = 10000
@@ -99,6 +94,7 @@ def init(data):
             mysnake = snek
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
+            '''
             if coord == snek['body']['data'][0]:
                 if coord['y']+1 < data['height']:
                     grid[coord['x']][coord['y']+1] += ENESNAKE
@@ -109,7 +105,7 @@ def init(data):
                 if coord['x']-1 < 0:
                     grid[coord['x']-1][coord['y']] += ENESNAKE
 
-
+'''
     for f in data['food']['data']:
         grid[f['x']][f['y']] += FOOD-mysnake['health']
 
