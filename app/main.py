@@ -50,20 +50,34 @@ def chooseDirect(head, grid):
     valuesL.sort()
 
     if valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2] and valuesL[0] == valuesL[3]:
-        print(valuesL)
-        random.shuffle(valuesL)
-        print(valuesL)
+        random.shuffle(directions)
+        return directions[0]
     elif valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2]:
-        valuesL = valuesL[:3]
-        print(valuesL)
-        random.shuffle(valuesL)
-        print(valuesL)
+        direct = []
+        if up == valuesL[0]:
+            direct.append('up')
+        if down == valuesL[0]:
+            direct.append('down')
+        if left == valuesL[0]:
+            direct.append('left')
+        if right == valuesL[0]:
+            direct.append('right')
+        random.shuffle(direct)
+        return directions[0]
     elif valuesL[0] == valuesL[1]:
-        valuesL = valuesL[:2]
-        print(valuesL)
-        random.shuffle(valuesL)
-        print(valuesL)
-    return valuesD[valuesL[0]]
+        direct = []
+        if up == valuesL[0]:
+            direct.append('up')
+        if down == valuesL[0]:
+            direct.append('down')
+        if left == valuesL[0]:
+            direct.append('left')
+        if right == valuesL[0]:
+            direct.append('right')
+        random.shuffle(direct)
+        return directions[0]
+    else:
+        return valuesD[valuesL[0]]
 '''
     #find smallest value
     if up < down:
