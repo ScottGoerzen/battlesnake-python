@@ -175,23 +175,23 @@ def move():
             grid[enemy['body']['data'][0]['x'] + 1][enemy['body']['data'][0]['y']] += SAFTEY
         if enemy['coords'][0][0] > 0:
             grid[enemy['body']['data'][0]['x'] - 1][enemy['body']['data'][0]['y']] += SAFTEY
-    '''
+
     #for each food
     for food in data['food']['data']:
-        dist1 = distanceV([head[0], head[1]+1], [food['x'], food['y']])
-        dist2 = distanceV([head[0], head[1]-1], [food['x'], food['y']])
-        dist3 = distanceV([head[0]+1, head[1]], [food['x'], food['y']])
-        dist4 = distanceV([head[0]-1, head[1]], [food['x'], food['y']])
         if head[1]+1 < height:
-            grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
+            dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
+            grid[head[0]][head[1]+1] += max(dist1/2)
         if head[1]-1 >= 0:
-            grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
+            dist2 = distance([head[0], head[1]-1], [food['x'], food['y']])
+            grid[head[0]][head[1]-1] += max(dist2/2)
         if head[0]+1 < width:
-            grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
-        if head[0] - 1 >= 0:
-            grid[head[0]-1][head[1]] -= max(width-dist4[0], height-dist4[1])
+            dist3 = distance([head[0]+1, head[1]], [food['x'], food['y']])
+            grid[head[0]+1][head[1]] += max(dist3/2)
+        if head[0]-1 >= 0:
+            dist4 = distance([head[0]-1, head[1]], [food['x'], food['y']])
+            grid[head[0]-1][head[1]] += max(dist4/2)
 
-'''
+
 
 
     # TODO: Do things with data
