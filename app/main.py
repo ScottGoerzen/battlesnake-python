@@ -11,7 +11,7 @@ SNEK_BUFFER = 3
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 100
 ENESNAKE = 10
-FOOD = -100
+FOOD = -10
 SAFTEY = -1
 
 def eval(location, grid):
@@ -176,6 +176,8 @@ def move():
 
     #for each food
     for food in data['food']['data']:
+        if snek['health'] >50:
+            continue
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
             grid[head[0]][head[1]+1] += dist1
