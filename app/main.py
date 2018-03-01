@@ -41,7 +41,9 @@ def chooseDirect(head, grid):
     location = [head[0]+1, head[1]]
     right = eval(location, grid)
 
+    print('Directions: [head: (%i,%i), up: (%i,%i), down: (%i,%i), left: (%i,%i), right: (%i,%i)]' % (head[0], head[1], head[0], head[1]+1, head[0], head[1]-1, head[0]-1, head[1], head[0]+1, head[1]))
     print ('Values: [up: %i, down: %i, left: %i, right: %i]' % (up, down, left, right))
+
 
     #find smallest value
     if up < down:
