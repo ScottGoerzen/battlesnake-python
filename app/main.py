@@ -179,8 +179,8 @@ def move():
 
     #for each food
     for food in data['food']['data']:
-        #if snek['health'] >50:
-           # continue
+        if snek['health'] >50:
+            continue
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
             grid[head[0]][head[1]+1] += dist1+healthF
@@ -197,18 +197,19 @@ def move():
         #print('Food Distance: [dist1: %f, dist2: %f, dist3: %f, dist4: %f]' % (dist1, dist2, dist3, dist4))
 
     #chase tail
-    if head[1] + 1 < height:
-        dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
-        grid[head[0]][head[1] + 1] += dist1+snek['health']
-    if head[1] - 1 >= 0:
-        dist2 = distance([head[0], head[1] - 1], [tail[0], tail[1]])
-        grid[head[0]][head[1] - 1] += dist2+snek['health']
-    if head[0] + 1 < width:
-        dist3 = distance([head[0] + 1, head[1]], [tail[0], tail[1]])
-        grid[head[0] + 1][head[1]] += dist3+snek['health']
-    if head[0] - 1 >= 0:
-        dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
-        grid[head[0] - 1][head[1]] += dist4+snek['health']
+    if snek['health'] > 50
+        if head[1] + 1 < height:
+            dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
+            grid[head[0]][head[1] + 1] += dist1+snek['health']
+        if head[1] - 1 >= 0:
+            dist2 = distance([head[0], head[1] - 1], [tail[0], tail[1]])
+            grid[head[0]][head[1] - 1] += dist2+snek['health']
+        if head[0] + 1 < width:
+            dist3 = distance([head[0] + 1, head[1]], [tail[0], tail[1]])
+            grid[head[0] + 1][head[1]] += dist3+snek['health']
+        if head[0] - 1 >= 0:
+            dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
+            grid[head[0] - 1][head[1]] += dist4+snek['health']
 
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
