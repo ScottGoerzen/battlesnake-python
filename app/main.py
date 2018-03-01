@@ -180,16 +180,16 @@ def move():
     for food in data['food']['data']:
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
-            grid[head[0]][head[1]+1] += max(dist1/2)
+            grid[head[0]][head[1]+1] += dist1
         if head[1]-1 >= 0:
             dist2 = distance([head[0], head[1]-1], [food['x'], food['y']])
-            grid[head[0]][head[1]-1] += max(dist2/2)
+            grid[head[0]][head[1]-1] += dist2)
         if head[0]+1 < width:
             dist3 = distance([head[0]+1, head[1]], [food['x'], food['y']])
-            grid[head[0]+1][head[1]] += max(dist3/2)
+            grid[head[0]+1][head[1]] += dist3
         if head[0]-1 >= 0:
             dist4 = distance([head[0]-1, head[1]], [food['x'], food['y']])
-            grid[head[0]-1][head[1]] += max(dist4/2)
+            grid[head[0]-1][head[1]] += dist4
 
 
 
