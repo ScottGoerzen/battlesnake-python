@@ -193,7 +193,7 @@ def move():
             dist4 = distance([head[0]-1, head[1]], [food['x'], food['y']])
             grid[head[0]-1][head[1]] += dist4
 
-
+        print('Food Distance: [dist1: %f, dist2: %f, dist3: %f, dist4: %f]' % (dist1, dist2, dist3, dist4))
 
 
     # TODO: Do things with data
