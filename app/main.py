@@ -190,7 +190,7 @@ def move():
 
     for row in grid:
         for column in row:
-            print (str(column , end=' ')
+            print (column , end=' ')
         print()
     print('_____________________________________________________________')
 
