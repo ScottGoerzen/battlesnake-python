@@ -183,7 +183,7 @@ def move():
             grid[head[0]][head[1]+1] += dist1
         if head[1]-1 >= 0:
             dist2 = distance([head[0], head[1]-1], [food['x'], food['y']])
-            grid[head[0]][head[1]-1] += dist2)
+            grid[head[0]][head[1]-1] += dist2
         if head[0]+1 < width:
             dist3 = distance([head[0]+1, head[1]], [food['x'], food['y']])
             grid[head[0]+1][head[1]] += dist3
