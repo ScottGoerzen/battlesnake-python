@@ -152,7 +152,7 @@ def move():
 
     head = [snek['body']['data'][0]['x'], snek['body']['data'][0]['y']]
 
-    
+
     # foreach snake
     for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
@@ -177,7 +177,7 @@ def move():
     #for each food
     for food in data['food']['data']:
         if snek['health'] >50:
-            continue
+           # continue
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
             grid[head[0]][head[1]+1] += dist1
