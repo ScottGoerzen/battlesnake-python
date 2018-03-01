@@ -18,7 +18,7 @@ def eval(location, grid):
     value = 50
 
     #if out of grid
-    if location[0] < 0 or location[1] < 0 or location[0] > len(grid) or location[1] > len(grid[0]):
+    if location[0] < 0 or location[1] < 0 or location[0] >= len(grid) or location[1] >= len(grid[0]):
         return value + 1000
 
     #Add value of grid
@@ -184,7 +184,7 @@ def move():
         dist4 = distanceV([head[0]-1, head[1]], [food['x'], food['y']])
         if head[1]+1 < height:
             grid[head[0]][head[1]+1] -= max(width-dist1[0], height-dist1[1])
-        if head[1]-1 <= 0:
+        if head[1]-1 >= 0:
             grid[head[0]][head[1]-1] -= max(width-dist2[0], height-dist2[1])
         if head[0]+1 < width:
             grid[head[0]+1][head[1]] -= max(width-dist3[0], height-dist3[1])
