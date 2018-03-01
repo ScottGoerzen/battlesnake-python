@@ -94,7 +94,7 @@ def init(data):
             mysnake = snek
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
-            
+
             if coord == snek['body']['data'][0] and snek['id'] != ID:
                 if coord['y']+1 < data['height']:
                     grid[coord['x']][coord['y']+1] += ENESNAKE
@@ -178,20 +178,26 @@ def move():
 
 
     #for each food
+
+    close = 100000
     for food in data['food']['data']:
-        if snek['health'] >50:
-            continue
+        dist = distance([head[0], head[1]], [food['x'], food['y']])
+        if dist < close:
+            closeFood = food
+
+
+    if snek['health'] < 50:
         if head[1]+1 < height:
-            dist1 = distance([head[0], head[1]+1], [food['x'], food['y']])
+            dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
             grid[head[0]][head[1]+1] += dist1+healthF
         if head[1]-1 >= 0:
-            dist2 = distance([head[0], head[1]-1], [food['x'], food['y']])
+            dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
             grid[head[0]][head[1]-1] += dist2+healthF
         if head[0]+1 < width:
-            dist3 = distance([head[0]+1, head[1]], [food['x'], food['y']])
+            dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
             grid[head[0]+1][head[1]] += dist3+healthF
         if head[0]-1 >= 0:
-            dist4 = distance([head[0]-1, head[1]], [food['x'], food['y']])
+            dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
             grid[head[0]-1][head[1]] += dist4+healthF
 
         #print('Food Distance: [dist1: %f, dist2: %f, dist3: %f, dist4: %f]' % (dist1, dist2, dist3, dist4))
