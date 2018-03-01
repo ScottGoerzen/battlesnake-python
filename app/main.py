@@ -44,6 +44,9 @@ def chooseDirect(head, grid):
     print('Directions: [head: (%i,%i), up: (%i,%i), down: (%i,%i), left: (%i,%i), right: (%i,%i)]' % (head[0], head[1], head[0], head[1]+1, head[0], head[1]-1, head[0]-1, head[1], head[0]+1, head[1]))
     print ('Values: [up: %i, down: %i, left: %i, right: %i]' % (up, down, left, right))
 
+    valuesD = {up:'up', down:'down', left:'left', right:'right'}
+    valuesL = [up, down, left, right]
+    print(valuesL)
 
     #find smallest value
     if up < down:
@@ -187,7 +190,7 @@ def move():
             closeFood = food
 
 
-    if snek['health'] < 50:
+    if snek['health'] < 75:
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
             grid[head[0]][head[1]+1] += dist1+healthF
@@ -204,7 +207,7 @@ def move():
         #print('Food Distance: [dist1: %f, dist2: %f, dist3: %f, dist4: %f]' % (dist1, dist2, dist3, dist4))
 
     #chase tail
-    if snek['health'] > 50:
+    if snek['health'] > 25:
         if head[1] + 1 < height:
             dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
             grid[head[0]][head[1] + 1] += dist1+snek['health']
