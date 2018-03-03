@@ -158,6 +158,8 @@ def init(data):
             print(c, end=' ')
         print()
 
+    print('\n\n-----------------------------------------------------\n')
+
     return mysnake, grid
 
 @bottle.route('/static/<path:path>')
