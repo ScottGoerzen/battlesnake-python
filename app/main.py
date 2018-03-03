@@ -222,7 +222,7 @@ def move():
             closeFood = food
 
 
-    healthF = 50-snek['health']
+    healthF = 70-snek['health']
 
     #if snek['health'] < 75:
     if head[1]+1 < height:
