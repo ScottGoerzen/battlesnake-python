@@ -238,23 +238,23 @@ def move():
 
 
     healthF = 100-snek['health']
-    factor = 2
+    factor = 3
     healthTotal = len(grid)
 
 
     #if snek['health'] < 100:
     if head[1]+1 < height:
         dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
-        grid[head[0]][head[1]+1] += dist1/healthTotal * 10
+        grid[head[0]][head[1]+1] += dist1/healthTotal * 20
     if head[1]-1 >= 0:
         dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
-        grid[head[0]][head[1]-1] += dist2/healthTotal * 10
+        grid[head[0]][head[1]-1] += dist2/healthTotal * 20
     if head[0]+1 < width:
         dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
-        grid[head[0]+1][head[1]] += dist3/healthTotal * 10
+        grid[head[0]+1][head[1]] += dist3/healthTotal * 20
     if head[0]-1 >= 0:
         dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
-        grid[head[0]-1][head[1]] += dist4/healthTotal * 10
+        grid[head[0]-1][head[1]] += dist4/healthTotal * 20
 
 
     #chase tail
