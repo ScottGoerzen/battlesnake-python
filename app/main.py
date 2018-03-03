@@ -238,7 +238,7 @@ def move():
 
 
     healthF = 100-snek['health']
-    factor = 1
+    factor = 2
     healthTotal = len(grid)
 
 
@@ -280,12 +280,12 @@ def move():
     # TODO: Do things with data
     # directions = ['up', 'down', 'left', 'right']
 
-   #The taunts. Uses random shuffle to change taunts.
-	def taunts():
-		words = ['Is that a raspberry!','Soup is just a liquid!','Gross, is that an apple!?','Look at my EGOOOOOO!','Onward to Gold River!','Look at my long flowing hair!']
-		random.shuffle(words)
-		
-		return words[0]
+    #The taunts. Uses random shuffle to change taunts.
+    def taunts():
+        words = ['Is that a raspberry!','Soup is just a liquid!','Gross, is that an apple!?','Look at my EGOOOOOO!','Onward to Gold River!','Look at my long flowing hair!']
+        random.shuffle(words)
+
+        return words[0]
 
     return {
         'move': chooseDirect(head, grid),
