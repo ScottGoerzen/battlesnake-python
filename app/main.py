@@ -140,9 +140,9 @@ def init(data):
         if f['y'] + 1 < data['height'] and f['x'] + 1 < data['width']:
             grid[f['x'] + 1][f['y'] + 1] -= FOOD/4
         if f['y'] + 1 < data['height'] and f['x'] - 1 >= 0:
-            grid[f['x'] + 1][f['y'] - 1] -= FOOD/4
-        if f['y'] - 1 >= 0 and f['x'] + 1 < data['width']:
             grid[f['x'] - 1][f['y'] + 1] -= FOOD/4
+        if f['y'] - 1 >= 0 and f['x'] + 1 < data['width']:
+            grid[f['x'] + 1][f['y'] - 1] -= FOOD/4
         if f['y'] - 1 >= 0 and f['x'] - 1 >= 0:
             grid[f['x'] - 1][f['y'] - 1] -= FOOD/4
 
