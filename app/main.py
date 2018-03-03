@@ -255,7 +255,7 @@ def move():
             grid[head[0]-1][head[1]] += dist4
 
     #chase tail
-    if snek['health'] > 75:
+    '''if snek['health'] > 75:
         if head[1] + 1 < height:
             dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
             grid[head[0]][head[1] + 1] += (dist1+healthF)*factor
@@ -267,7 +267,7 @@ def move():
             grid[head[0] + 1][head[1]] += (dist3+healthF)*factor
         if head[0] - 1 >= 0:
             dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
-            grid[head[0] - 1][head[1]] += (dist4+healthF)*factor
+            grid[head[0] - 1][head[1]] += (dist4+healthF)*factor'''
 
     for r in grid:
         for c in r:
