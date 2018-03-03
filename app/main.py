@@ -153,6 +153,10 @@ def init(data):
         if f['y'] - 1 >= 0 and f['x'] - 1 >= 0:
             grid[f['x'] - 1][f['y'] - 1] -= FOOD/4
 
+    for r in grid:
+        for c in r:
+            print(c, end=' ')
+        print()
 
     return mysnake, grid
 
