@@ -13,6 +13,7 @@ SNAKE = 1000
 ENESNAKE = 10
 FOOD = 50
 SAFTEY = -15
+tcount=0
 
 def eval(location, grid):
     value = 0
@@ -189,6 +190,15 @@ def start():
         'name': 'Bird Snake'
     }
 
+def taunts():
+    words = ['Is that a raspberry!','Soup is just a liquid!','Gross, is that an apple!?','Look at my EGOOOOOO!','Onward to Gold River!','Look at my long flowing hair!']
+    if tcount==4:
+        random.shuffle(words)
+        tcount=0
+    else 
+        tcount=tcount+1
+            
+    return words[0]
 
 @bottle.post('/move')
 def move():
@@ -281,11 +291,7 @@ def move():
     # directions = ['up', 'down', 'left', 'right']
 
     #The taunts. Uses random shuffle to change taunts.
-    def taunts():
-        words = ['Is that a raspberry!','Soup is just a liquid!','Gross, is that an apple!?','Look at my EGOOOOOO!','Onward to Gold River!','Look at my long flowing hair!']
-        random.shuffle(words)
-
-        return words[0]
+    
 
     return {
         'move': chooseDirect(head, grid),
