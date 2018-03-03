@@ -213,6 +213,7 @@ def move():
         dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
+        print('boooo')
         if (enemy['length'] > snek['length']) - 1:
         # dodge
             if enemy['body']['data'][0]['y'] < data['height'] - 1:
