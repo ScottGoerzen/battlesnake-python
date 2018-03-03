@@ -164,7 +164,7 @@ def start():
         'color': '#00F100',
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
-        'name': 'Bird Snek'
+        'name': 'Bird Snake'
     }
 
 
