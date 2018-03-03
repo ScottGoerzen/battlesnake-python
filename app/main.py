@@ -245,20 +245,20 @@ def move():
     #if snek['health'] < 100:
     if head[1]+1 < height:
         dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
-        grid[head[0]][head[1]+1] += dist1/healthTotal * 20
+        grid[head[0]][head[1]+1] += dist1-healthF
     if head[1]-1 >= 0:
         dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
-        grid[head[0]][head[1]-1] += dist2/healthTotal * 20
+        grid[head[0]][head[1]-1] += dist2/-healthF
     if head[0]+1 < width:
         dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
-        grid[head[0]+1][head[1]] += dist3/healthTotal * 20
+        grid[head[0]+1][head[1]] += dist3/-healthF
     if head[0]-1 >= 0:
         dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
-        grid[head[0]-1][head[1]] += dist4/healthTotal * 20
+        grid[head[0]-1][head[1]] += dist4/-healthF
 
 
     #chase tail
-    if snek['health'] > 50:
+    if snek['health'] > 75:
         if head[1] + 1 < height:
             dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
             grid[head[0]][head[1] + 1] += (dist1/length * 10)*factor
