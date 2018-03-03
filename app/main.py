@@ -10,9 +10,9 @@ import random
 SNEK_BUFFER = 4
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 1000
-ENESNAKE = 20
+ENESNAKE = 10
 FOOD = 15
-SAFTEY = -14
+SAFTEY = -15
 
 def eval(location, grid):
     value = 0
