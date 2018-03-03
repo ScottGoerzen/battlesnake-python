@@ -123,14 +123,14 @@ def init(data):
                 grid[coord['x'] + 1][coord['y']] += ENESNAKE
             if coord['x'] - 1 < 0:
                 grid[coord['x'] - 1][coord['y']] += ENESNAKE
-            if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
+            '''if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
                 grid[coord['x'] + 1][coord['y'] + 1] += ENESNAKE / 2
             if coord['y'] + 1 < data['height'] and coord['x'] - 1 >= 0:
                 grid[coord['x'] - 1][coord['y'] + 1] += ENESNAKE / 2
             if coord['y'] - 1 >= 0 and coord['x'] + 1 < data['width']:
                 grid[coord['x'] + 1][coord['y'] - 1] += ENESNAKE / 2
             if coord['y'] - 1 >= 0 and coord['x'] - 1 >= 0:
-                grid[coord['x'] - 1][coord['y'] - 1] += ENESNAKE / 2
+                grid[coord['x'] - 1][coord['y'] - 1] += ENESNAKE / 2'''
 
 
     for f in data['food']['data']:
