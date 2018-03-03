@@ -153,10 +153,6 @@ def init(data):
         if f['y'] - 1 >= 0 and f['x'] - 1 >= 0:
             grid[f['x'] - 1][f['y'] - 1] -= FOOD/4
 
-    for r in grid:
-        for c in r:
-            print(c, end=' ')
-        print()
 
     return mysnake, grid
 
@@ -264,6 +260,11 @@ def move():
         if head[0] - 1 >= 0:
             dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
             grid[head[0] - 1][head[1]] += (dist4+snek['health'])
+
+    for r in grid:
+        for c in r:
+            print(c, end=' ')
+        print()
 
     # TODO: Do things with data
     # directions = ['up', 'down', 'left', 'right']
