@@ -10,7 +10,7 @@ import random
 SNEK_BUFFER = 4
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 500
-ENESNAKE = 100
+ENESNAKE = 50
 FOOD = 10
 SAFTEY = -20
 
@@ -116,6 +116,14 @@ def init(data):
                     grid[coord['x']+1][coord['y']] += ENESNAKE
                 if coord['x']-1 < 0:
                     grid[coord['x']-1][coord['y']] += ENESNAKE
+            if coord['y'] + 1 < data['height']:
+                grid[coord['x']][coord['y'] + 1] += ENESNAKE/2
+            if coord['y'] - 1 >= 0:
+                grid[coord['x']][coord['y'] - 1] += ENESNAKE/2
+            if coord['x'] + 1 < data['width']:
+                grid[coord['x'] + 1][coord['y']] += ENESNAKE/2
+            if coord['x'] - 1 < 0:
+                grid[coord['x'] - 1][coord['y']] += ENESNAKE/2
 
 
     for f in data['food']['data']:
@@ -132,9 +140,9 @@ def init(data):
         if f['y'] + 1 < data['height'] and f['x'] + 1 < data['width']:
             grid[f['x'] + 1][f['y'] + 1] -= FOOD/4
         if f['y'] + 1 < data['height'] and f['x'] - 1 >= 0:
-            grid[f['x'] + 1][f['y'] - 1] -= FOOD/4
-        if f['y'] - 1 >= 0 and f['x'] + 1 < data['width']:
             grid[f['x'] - 1][f['y'] + 1] -= FOOD/4
+        if f['y'] - 1 >= 0 and f['x'] + 1 < data['width']:
+            grid[f['x'] + 1][f['y'] - 1] -= FOOD/4
         if f['y'] - 1 >= 0 and f['x'] - 1 >= 0:
             grid[f['x'] - 1][f['y'] - 1] -= FOOD/4
 
@@ -183,7 +191,6 @@ def move():
     head = [snek['body']['data'][0]['x'], snek['body']['data'][0]['y']]
     tail = [snek['body']['data'][length]['x'], snek['body']['data'][length]['y']]
 
-    healthF = 100-snek['health']
 
     # foreach snake
     for enemy in data['snakes']['data']:
@@ -215,34 +222,36 @@ def move():
             closeFood = food
 
 
-    if snek['health'] < 75:
-        if head[1]+1 < height:
-            dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
-            grid[head[0]][head[1]+1] += dist1+healthF
-        if head[1]-1 >= 0:
-            dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
-            grid[head[0]][head[1]-1] += dist2+healthF
-        if head[0]+1 < width:
-            dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
-            grid[head[0]+1][head[1]] += dist3+healthF
-        if head[0]-1 >= 0:
-            dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
-            grid[head[0]-1][head[1]] += dist4+healthF
+    healthF = 50-snek['health']
+
+    #if snek['health'] < 75:
+    if head[1]+1 < height:
+        dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
+        grid[head[0]][head[1]+1] += dist1+healthF
+    if head[1]-1 >= 0:
+        dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
+        grid[head[0]][head[1]-1] += dist2+healthF
+    if head[0]+1 < width:
+        dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
+        grid[head[0]+1][head[1]] += dist3+healthF
+    if head[0]-1 >= 0:
+        dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
+        grid[head[0]-1][head[1]] += dist4+healthF
 
     #chase tail
-    if snek['health'] > 75:
-        if head[1] + 1 < height:
-            dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
-            grid[head[0]][head[1] + 1] += dist1+snek['health']
-        if head[1] - 1 >= 0:
-            dist2 = distance([head[0], head[1] - 1], [tail[0], tail[1]])
-            grid[head[0]][head[1] - 1] += dist2+snek['health']
-        if head[0] + 1 < width:
-            dist3 = distance([head[0] + 1, head[1]], [tail[0], tail[1]])
-            grid[head[0] + 1][head[1]] += dist3+snek['health']
-        if head[0] - 1 >= 0:
-            dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
-            grid[head[0] - 1][head[1]] += dist4+snek['health']
+    #if snek['health'] > 75:
+    if head[1] + 1 < height:
+        dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
+        grid[head[0]][head[1] + 1] += (dist1+snek['health'])
+    if head[1] - 1 >= 0:
+        dist2 = distance([head[0], head[1] - 1], [tail[0], tail[1]])
+        grid[head[0]][head[1] - 1] += (dist2+snek['health'])
+    if head[0] + 1 < width:
+        dist3 = distance([head[0] + 1, head[1]], [tail[0], tail[1]])
+        grid[head[0] + 1][head[1]] += (dist3+snek['health'])
+    if head[0] - 1 >= 0:
+        dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
+        grid[head[0] - 1][head[1]] += (dist4+snek['health'])
 
     # TODO: Do things with data
     # directions = ['up', 'down', 'left', 'right']
