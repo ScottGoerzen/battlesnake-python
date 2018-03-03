@@ -11,7 +11,7 @@ SNEK_BUFFER = 4
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 1000
 ENESNAKE = 10
-FOOD = 15
+FOOD = 50
 SAFTEY = -15
 
 def eval(location, grid):
@@ -238,7 +238,7 @@ def move():
 
 
     healthF = 100-snek['health']
-    factor = 1
+    factor = 2
 
     #if snek['health'] < 75:
     if head[1]+1 < height:
