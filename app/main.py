@@ -107,30 +107,30 @@ def init(data):
             grid[coord['x']][coord['y']] += SNAKE
 
             if coord == snek['body']['data'][0]:
-                '''if coord['y']+1 < data['height']:
-    grid[coord['x']][coord['y']+1] += ENESNAKE
-if coord['y']-1 >= 0:
-    grid[coord['x']][coord['y']-1] += ENESNAKE
-if coord['x']+1 < data['width']:
-    grid[coord['x']+1][coord['y']] += ENESNAKE
-if coord['x']-1 < 0:
-    grid[coord['x']-1][coord['y']] += ENESNAKE'''
-    '''if coord['y'] + 1 < data['height']:
-            grid[coord['x']][coord['y'] + 1] += ENESNAKE
-        if coord['y'] - 1 >= 0:
-            grid[coord['x']][coord['y'] - 1] += ENESNAKE
-        if coord['x'] + 1 < data['width']:
-            grid[coord['x'] + 1][coord['y']] += ENESNAKE
-        if coord['x'] - 1 < 0:
-            grid[coord['x'] - 1][coord['y']] += ENESNAKE
-        ''''''if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
+                if coord['y']+1 < data['height']:
+                    grid[coord['x']][coord['y']+1] += ENESNAKE
+                if coord['y']-1 >= 0:
+                    grid[coord['x']][coord['y']-1] += ENESNAKE
+                if coord['x']+1 < data['width']:
+                    grid[coord['x']+1][coord['y']] += ENESNAKE
+                if coord['x']-1 < 0:
+                    grid[coord['x']-1][coord['y']] += ENESNAKE
+                if coord['y'] + 1 < data['height']:
+                    grid[coord['x']][coord['y'] + 1] += ENESNAKE
+            if coord['y'] - 1 >= 0:
+                grid[coord['x']][coord['y'] - 1] += ENESNAKE
+            if coord['x'] + 1 < data['width']:
+                grid[coord['x'] + 1][coord['y']] += ENESNAKE
+            if coord['x'] - 1 < 0:
+                grid[coord['x'] - 1][coord['y']] += ENESNAKE
+            if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
                 grid[coord['x'] + 1][coord['y'] + 1] += ENESNAKE / 2
             if coord['y'] + 1 < data['height'] and coord['x'] - 1 >= 0:
                 grid[coord['x'] - 1][coord['y'] + 1] += ENESNAKE / 2
             if coord['y'] - 1 >= 0 and coord['x'] + 1 < data['width']:
                 grid[coord['x'] + 1][coord['y'] - 1] += ENESNAKE / 2
             if coord['y'] - 1 >= 0 and coord['x'] - 1 >= 0:
-                grid[coord['x'] - 1][coord['y'] - 1] += ENESNAKE / 2'''
+                grid[coord['x'] - 1][coord['y'] - 1] += ENESNAKE / 2
 
 
     for f in data['food']['data']:
@@ -240,7 +240,7 @@ def move():
     healthF = 100-snek['health']
     factor = 2
 
-    if snek['health'] < 100:
+    #if snek['health'] < 100:
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
             grid[head[0]][head[1]+1] += dist1
@@ -256,7 +256,7 @@ def move():
 
 
     #chase tail
-    '''if snek['health'] > 75:
+    #if snek['health'] > 75:
         if head[1] + 1 < height:
             dist1 = distance([head[0], head[1] + 1], [tail[0], tail[1]])
             grid[head[0]][head[1] + 1] += (dist1+healthF)*factor
@@ -268,7 +268,7 @@ def move():
             grid[head[0] + 1][head[1]] += (dist3+healthF)*factor
         if head[0] - 1 >= 0:
             dist4 = distance([head[0] - 1, head[1]], [tail[0], tail[1]])
-            grid[head[0] - 1][head[1]] += (dist4+healthF)*factor'''
+            grid[head[0] - 1][head[1]] += (dist4+healthF)*factor
 
     for r in grid:
         for c in r:
