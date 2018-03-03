@@ -11,7 +11,7 @@ SNEK_BUFFER = 4
 ID = 'de508402-17c8-4ac7-ab0b-f96cb53fbee8'
 SNAKE = 500
 ENESNAKE = 100
-FOOD = -10
+FOOD = 10
 SAFTEY = -20
 
 def eval(location, grid):
@@ -83,7 +83,7 @@ def chooseDirect(head, grid):
 def distance(p, q):
     dx = abs(p[0] - q[0])
     dy = abs(p[1] - q[1])
-    return dx + dy;
+    return dx + dy
 
 def closest(items, start):
     closest_item = None
@@ -119,7 +119,24 @@ def init(data):
 
 
     for f in data['food']['data']:
-        grid[f['x']][f['y']] += FOOD-mysnake['health']
+        grid[f['x']][f['y']] -= FOOD
+        if f['y'] + 1 < data['height']:
+            grid[f['x']][f['y'] + 1] -= FOOD/2
+        if f['y'] - 1 >= 0:
+            grid[f['x']][f['y'] - 1] -= FOOD/2
+        if f['x'] + 1 < data['width']:
+            grid[f['x'] + 1][f['y']] -= FOOD/2
+        if f['x'] - 1 < 0:
+            grid[f['x'] - 1][f['y']] -= FOOD/2
+
+        if f['y'] + 1 < data['height'] and f['x'] + 1 < data['width']:
+            grid[f['x'] + 1][f['y'] + 1] -= FOOD/4
+        if f['y'] + 1 < data['height'] and f['x'] - 1 >= 0:
+            grid[f['x'] + 1][f['y'] - 1] -= FOOD/4
+        if f['y'] - 1 >= 0 and f['x'] + 1 < data['width']:
+            grid[f['x'] - 1][f['y'] + 1] -= FOOD/4
+        if f['y'] - 1 >= 0 and f['x'] - 1 >= 0:
+            grid[f['x'] - 1][f['y'] - 1] -= FOOD/4
 
     return mysnake, grid
 
@@ -228,7 +245,7 @@ def move():
             grid[head[0] - 1][head[1]] += dist4+snek['health']
 
     # TODO: Do things with data
-    directions = ['up', 'down', 'left', 'right']
+    # directions = ['up', 'down', 'left', 'right']
 
 
     return {
