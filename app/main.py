@@ -115,15 +115,15 @@ def init(data):
                     grid[coord['x']+1][coord['y']] += ENESNAKE
                 if coord['x']-1 < 0:
                     grid[coord['x']-1][coord['y']] += ENESNAKE
-            if coord['y'] + 1 < data['height']:
-                grid[coord['x']][coord['y'] + 1] += ENESNAKE
-            if coord['y'] - 1 >= 0:
-                grid[coord['x']][coord['y'] - 1] += ENESNAKE
-            if coord['x'] + 1 < data['width']:
-                grid[coord['x'] + 1][coord['y']] += ENESNAKE
-            if coord['x'] - 1 < 0:
-                grid[coord['x'] - 1][coord['y']] += ENESNAKE
-            '''if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
+                    '''if coord['y'] + 1 < data['height']:
+            grid[coord['x']][coord['y'] + 1] += ENESNAKE
+        if coord['y'] - 1 >= 0:
+            grid[coord['x']][coord['y'] - 1] += ENESNAKE
+        if coord['x'] + 1 < data['width']:
+            grid[coord['x'] + 1][coord['y']] += ENESNAKE
+        if coord['x'] - 1 < 0:
+            grid[coord['x'] - 1][coord['y']] += ENESNAKE
+        ''''''if coord['y'] + 1 < data['height'] and coord['x'] + 1 < data['width']:
                 grid[coord['x'] + 1][coord['y'] + 1] += ENESNAKE / 2
             if coord['y'] + 1 < data['height'] and coord['x'] - 1 >= 0:
                 grid[coord['x'] - 1][coord['y'] + 1] += ENESNAKE / 2
