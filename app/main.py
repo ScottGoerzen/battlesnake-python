@@ -83,7 +83,7 @@ def chooseDirect(head, grid):
 def distance(p, q):
     dx = abs(p[0] - q[0])
     dy = abs(p[1] - q[1])
-    return dx + dy
+    return dx + dy;
 
 def closest(items, start):
     closest_item = None
@@ -240,7 +240,7 @@ def move():
     healthF = 100-snek['health']
     factor = 2
 
-    if snek['health'] < 75:
+    if snek['health'] < 100:
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
             grid[head[0]][head[1]+1] += dist1
@@ -253,6 +253,7 @@ def move():
         if head[0]-1 >= 0:
             dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
             grid[head[0]-1][head[1]] += dist4
+
 
     #chase tail
     '''if snek['health'] > 75:
