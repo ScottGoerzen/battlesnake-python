@@ -51,7 +51,6 @@ def chooseDirect(head, grid):
 
     if valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2] and valuesL[0] == valuesL[3]:
         random.shuffle(directions)
-        # return directions[0]
         return valuesD[valuesL[0]]
     elif valuesL[0] == valuesL[1] and valuesL[0] == valuesL[2]:
         direct = []
@@ -64,7 +63,6 @@ def chooseDirect(head, grid):
         if right == valuesL[0]:
             direct.append('right')
         random.shuffle(direct)
-        # return directions[0]
         return valuesD[valuesL[0]]
     elif valuesL[0] == valuesL[1]:
         direct = []
@@ -77,35 +75,10 @@ def chooseDirect(head, grid):
         if right == valuesL[0]:
             direct.append('right')
         random.shuffle(direct)
-        #return directions[0]
         return valuesD[valuesL[0]]
     else:
         return valuesD[valuesL[0]]
-'''
-    #find smallest value
-    if up < down:
-        if up < left:
-            if up < right:
-                return 'up'
-            else:
-                return 'right'
-        else:
-            if left < right:
-                return 'left'
-            else:
-                return 'right'
-    else:
-        if down < left:
-            if down < right:
-                return 'down'
-            else:
-                return 'right'
-        else:
-            if left < right:
-                return 'left'
-            else:
-                return 'right'
-                '''
+
 
 def distance(p, q):
     dx = abs(p[0] - q[0])
@@ -133,7 +106,8 @@ def init(data):
         for coord in snek['body']['data']:
             grid[coord['x']][coord['y']] += SNAKE
 
-            if coord == snek['body']['data'][0] and snek['id'] != ID:
+            #if coord == snek['body']['data'][0] and snek['id'] != ID:
+            if coord == snek['body']['data'][0]:
                 if coord['y']+1 < data['height']:
                     grid[coord['x']][coord['y']+1] += ENESNAKE
                 if coord['y']-1 >= 0:
@@ -198,7 +172,6 @@ def move():
     for enemy in data['snakes']['data']:
         if (enemy['id'] == ID):
             continue
-        #print('hallo')
         dist = distance(head, [enemy['body']['data'][0]['x'], enemy['body']['data'][0]['y']])
         if dist > SNEK_BUFFER:
             continue
