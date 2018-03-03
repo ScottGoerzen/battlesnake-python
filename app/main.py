@@ -231,7 +231,7 @@ def move():
 
 
     healthF = 100-snek['health']
-    factor = 2
+    factor = 1
 
     #if snek['health'] < 75:
     if head[1]+1 < height:
