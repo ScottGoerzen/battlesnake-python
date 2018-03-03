@@ -107,15 +107,15 @@ def init(data):
             grid[coord['x']][coord['y']] += SNAKE
 
             if coord == snek['body']['data'][0]:
-                if coord['y']+1 < data['height']:
-                    grid[coord['x']][coord['y']+1] += ENESNAKE
-                if coord['y']-1 >= 0:
-                    grid[coord['x']][coord['y']-1] += ENESNAKE
-                if coord['x']+1 < data['width']:
-                    grid[coord['x']+1][coord['y']] += ENESNAKE
-                if coord['x']-1 < 0:
-                    grid[coord['x']-1][coord['y']] += ENESNAKE
-                    '''if coord['y'] + 1 < data['height']:
+                '''if coord['y']+1 < data['height']:
+    grid[coord['x']][coord['y']+1] += ENESNAKE
+if coord['y']-1 >= 0:
+    grid[coord['x']][coord['y']-1] += ENESNAKE
+if coord['x']+1 < data['width']:
+    grid[coord['x']+1][coord['y']] += ENESNAKE
+if coord['x']-1 < 0:
+    grid[coord['x']-1][coord['y']] += ENESNAKE'''
+    '''if coord['y'] + 1 < data['height']:
             grid[coord['x']][coord['y'] + 1] += ENESNAKE
         if coord['y'] - 1 >= 0:
             grid[coord['x']][coord['y'] - 1] += ENESNAKE
@@ -243,16 +243,16 @@ def move():
     if snek['health'] < 75:
         if head[1]+1 < height:
             dist1 = distance([head[0], head[1]+1], [closeFood['x'], closeFood['y']])
-            grid[head[0]][head[1]+1] += dist1+healthF
+            grid[head[0]][head[1]+1] += dist1
         if head[1]-1 >= 0:
             dist2 = distance([head[0], head[1]-1], [closeFood['x'], closeFood['y']])
-            grid[head[0]][head[1]-1] += dist2+healthF
+            grid[head[0]][head[1]-1] += dist2
         if head[0]+1 < width:
             dist3 = distance([head[0]+1, head[1]], [closeFood['x'], closeFood['y']])
-            grid[head[0]+1][head[1]] += dist3+healthF
+            grid[head[0]+1][head[1]] += dist3
         if head[0]-1 >= 0:
             dist4 = distance([head[0]-1, head[1]], [closeFood['x'], closeFood['y']])
-            grid[head[0]-1][head[1]] += dist4+healthF
+            grid[head[0]-1][head[1]] += dist4
 
     #chase tail
     '''if snek['health'] > 75:
